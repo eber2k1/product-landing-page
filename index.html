@@ -9,22 +9,22 @@
     <meta name="author" content="eber2k1">
     <title>Samsung Galaxy S25 Ultra</title>
     <link rel="stylesheet" href="./css/styles.css">
-</head>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-    const toggleButton = document.getElementById("theme-toggle");
-    const body = document.body;
-
-    // Detectar preferencia del sistema operativo
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-        body.classList.add("light-mode");
-    }
-
-    toggleButton.addEventListener("click", () => {
-        body.classList.toggle("light-mode");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.getElementById("theme-toggle");
+        const body = document.body;
+    
+        // Detectar preferencia del sistema operativo
+        if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+            body.classList.add("light-mode");
+        }
+    
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("light-mode");
+        });
     });
-});
-</script>
+    </script>
+</head>
 
 <body>
     <!-- Navegación (menu)-->

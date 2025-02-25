@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compra tu Samsung Galaxy S25 ULTRA con facilidad. Sigue el proceso de compra paso a paso con accesibilidad mejorada.">
+    <title>Compra Samsung Galaxy S25 ULTRA - Proceso Paso a Paso</title>
+    <link rel="stylesheet" href="./css/styles-compra.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.getElementById("theme-toggle");
+            const navToggle = document.getElementById("nav-toggle");
+            const navMenu = document.getElementById("nav-menu");
+            const body = document.body;
+
+            // Detectar preferencia del sistema operativo
+            if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+                body.classList.add("light-mode");
+            }
+
+            toggleButton.addEventListener("click", () => {
+                body.classList.toggle("light-mode");
+            });
+
+            navToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("show");
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Navegación (Menú) -->
+    <header>
+        <nav aria-label="Menú principal">
+            <div id="logo">
+                <a href="./index.html" aria-label="Ir a la página de inicio">
+                    <p>SAMSUNG GALAXY</p>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./testimonios.html" >Testimonios</a></li>
+                <li><a href="./compra.html" aria-current="page">Compra</a></li>
+            </ul>
+            <button class="navbar-toggler" id="nav-toggle">
+                ☰
+            </button>
+        </nav>
+    </header>
+
+    <main id="proceso-compra">
+        <h1>Proceso de Compra del Samsung Galaxy S25 ULTRA</h1>
+
+        <!-- Paso 1: Resumen del Producto -->
+        <section id="step1" aria-labelledby="titulo-step1">
+            <h2 id="titulo-step1">Resumen del Producto</h2>
+            <p><strong>Producto:</strong> Samsung Galaxy S25 ULTRA</p>
+            <p><strong>Precio:</strong> $999.99</p>
+            <button class="btn" onclick="selectStep(2)" aria-label="Ir al cálculo de envío">Continuar</button>
+        </section>
+
+        <!-- Paso 2: Cálculo de Envío -->
+        <section id="step2" class="hidden" aria-labelledby="titulo-step2">
+            <h2 id="titulo-step2">Cálculo de Envío</h2>
+            <form>
+                <label for="address">Dirección de Envío:</label>
+                <input type="text" id="address" placeholder="Ingresa tu dirección" aria-required="true">
+
+                <label for="shipping">Método de Envío:</label>
+                <select id="shipping">
+                    <option value="standard">Estándar - $5.00</option>
+                    <option value="express">Express - $15.00</option>
+                </select>
+            </form>
+            <button class="btn" onclick="selectStep(3)" aria-label="Ir al método de pago">Siguiente</button>
+        </section>
+
+        <!-- Paso 3: Método de Pago -->
+        <section id="step3" class="hidden" aria-labelledby="titulo-step3">
+            <h2 id="titulo-step3">Método de Pago</h2>
+            <form>
+                <label for="card">Número de Tarjeta:</label>
+                <input type="text" id="card" placeholder="1234 5678 9012 3456" aria-required="true">
+
+                <label for="expiration">Fecha de Expiración:</label>
+                <input type="text" id="expiration" placeholder="MM/AA" aria-required="true">
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="123" aria-required="true">
+            </form>
+            <button class="btn" onclick="alert('Compra completada!')" aria-label="Finalizar compra">Finalizar Compra</button>
+        </section>
+    </main>
+
+    <aside aria-label="Progreso del proceso de compra">
+        <h2>Progreso</h2>
+        <div class="step active" onclick="selectStep(1)" role="button" tabindex="0">
+            <span class="icon">🛒</span> Seleccionar Producto
+        </div>
+        <div class="step" onclick="selectStep(2)" role="button" tabindex="0">
+            <span class="icon">🚚</span> Cálculo de Envío
+        </div>
+        <div class="step" onclick="selectStep(3)" role="button" tabindex="0">
+            <span class="icon">💳</span> Método de Pago
+        </div>
+    </aside>
+
+    <footer aria-label="Pie de página">
+        <p>&copy; 2025 Todos los derechos reservados a <strong>Eber Solano</strong>.</p>
+        <p>Síguenos en:
+            <a href="#" aria-label="Facebook de la tienda">Facebook</a> |
+            <a href="#" aria-label="Twitter de la tienda">Twitter</a> |
+            <a href="#" aria-label="Instagram de la tienda">Instagram</a>
+        </p>
+    </footer>
+    <button id="theme-toggle" aria-label="Cambiar entre modo claro y oscuro">Modo Claro/Oscuro</button>
+</body>
+</html>

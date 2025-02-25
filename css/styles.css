@@ -1,18 +1,20 @@
 /* VARIABLES DE COLOR */
 :root {
-    --bg-color: #000000;
+    --bg-color: #121212;
     --text-color: #ffffff;
-    --card-bg: #1a1a1a93;
+    --card-bg: #1e1e1e;
     --card-text: #ffffff;
     --highlight-color: #00d4ff;
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-/*END VARIABLES DE COLOR */
 
 /* MODO CLARO */
 .light-mode {
     --bg-color: #ffffff;
     --text-color: #000000;
-    --card-bg: #f0f0f0;
+    --card-bg: #f8f8f8;
     --card-text: #000000;
     --highlight-color: #0077cc;
 }
@@ -55,8 +57,8 @@ body {
 
 /*END RESET Y ESTILOS GENERALES */
 
+/* Header */
 
-/* HEADER */
 header {
     position: fixed;
     top: 0;
@@ -64,68 +66,78 @@ header {
     right: 0;
     width: 100%;
     z-index: 1000;
-    background-color: var(--bg-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: var(--bg-color);
+    box-shadow: var(--shadow);
+    border-bottom: 2px solid var(--highlight-color);
+    padding: 1rem 2rem;
 }
 
 header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 2vh;
-    padding: 1rem 2rem;
-    gap: 1rem;
-    overflow-x: auto;
 }
 
-header nav #logo {
-    font-size: 3vh;
+#logo {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
     font-weight: bold;
+    color: var(--highlight-color);
 }
 
-header nav ul {
-    font-size: 2vh;
+.nav-menu {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 1rem;
 }
-
-header nav ul li {
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    transition: background-color 0.3s;
+.nav-menu li {
+    list-style: none;
 }
 
-header nav #theme-toggle {
-    font-size: 2vh;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
+.nav-menu a {
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--highlight-color);
+}
+
+.navbar-toggler {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
     border: none;
-    background: linear-gradient(135deg, #34f8ff, #030d2b);
-    color: white;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    color: var(--highlight-color);
+    cursor: pointer;
 }
 
-/* Efecto hover */
-header nav #theme-toggle:hover {
-    background: linear-gradient(135deg, #030d2b, #34f8ff);
-    transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
 
-/* Efecto cuando se presiona */
-header nav #theme-toggle:active {
-    transform: scale(0.95);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+@media (max-width: 768px) {
+    .navbar-toggler {
+        display: block;
+    }
 
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-color);
+        padding: 1rem 0;
+        box-shadow: var(--shadow);
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .nav-menu li {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+}
 
 /* END HEADER */
 
@@ -370,3 +382,21 @@ footer {
     font-size: 3vh;
 }
 /*END FOOTER */
+
+/*BOTON FLOTANTE OSCURO/CLARO */
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+#theme-toggle:hover {
+    background-color: #0056b3;
+}
+/*END BOTON FLOTANTE OSCURO/CLARO */

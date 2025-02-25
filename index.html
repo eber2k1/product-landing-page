@@ -11,18 +11,24 @@
     <link rel="stylesheet" href="./css/styles.css">
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-        const toggleButton = document.getElementById("theme-toggle");
-        const body = document.body;
-    
-        // Detectar preferencia del sistema operativo
-        if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-            body.classList.add("light-mode");
-        }
-    
-        toggleButton.addEventListener("click", () => {
-            body.classList.toggle("light-mode");
+            const toggleButton = document.getElementById("theme-toggle");
+            const navToggle = document.getElementById("nav-toggle");
+            const navMenu = document.getElementById("nav-menu");
+            const body = document.body;
+
+            // Detectar preferencia del sistema operativo
+            if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+                body.classList.add("light-mode");
+            }
+
+            toggleButton.addEventListener("click", () => {
+                body.classList.toggle("light-mode");
+            });
+
+            navToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("show");
+            });
         });
-    });
     </script>
 </head>
 
@@ -35,16 +41,18 @@
                     <p>SAMSUNG GALAXY</p>
                 </a>
             </div>
-            <ul>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#features" aria-current="page">Características</a></li>
                 <li><a href="#gallery">Galería de imagenes </a></li>
                 <li><a href="#delivery">Envíos</a></li>
                 <li><a href="#payment-methods">Pagos</a></li>
                 <li><a href="#contact">Contacto</a></li>
+                <li><a href="./testimonios.html" >Testimonios</a></li>
+                <li><a href="./compra.html" >Compra</a></li>
             </ul>
-            <div>
-                <button id="theme-toggle">Modo Claro/Oscuro</button>
-            </div>
+            <button class="navbar-toggler" id="nav-toggle">
+                ☰
+            </button>
         </nav>
     </header>
     
@@ -149,5 +157,6 @@
             <a href="#">Instagram</a>
         </p>
     </footer>
+    <button id="theme-toggle" aria-label="Cambiar entre modo claro y oscuro">Modo Claro/Oscuro</button>
 </body>
 </html>

@@ -9,6 +9,7 @@
     --transition-speed: 0.3s;
     --shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+/*END VARIABLES DE COLOR */
 
 /* MODO CLARO */
 .light-mode {
@@ -18,7 +19,7 @@
     --card-text: #000000;
     --highlight-color: #0077cc;
 }
-/*END MODO CLARO */
+/* END MODO CLARO */
 
 /* RESET Y ESTILOS GENERALES */
 * {
@@ -42,8 +43,7 @@ a {
 }
 
 img {
-    display: block;
-    border-radius: 10px;
+    width: 100%;
 }
 
 body {
@@ -52,9 +52,12 @@ body {
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
     overflow-x: hidden;
-    
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
 }
-
 /*END RESET Y ESTILOS GENERALES */
 
 /* Header */
@@ -138,23 +141,13 @@ header nav {
         padding: 0.5rem 0;
     }
 }
-
 /* END HEADER */
 
 
 /* MAIN */
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, var(--bg-color), rgba(255, 255, 255, 0.3));
-}
-
-
-/*START MAIN #HERO*/
-main #hero {
+/*hero*/
+#hero{
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -164,221 +157,234 @@ main #hero {
     position: relative;
 }
 
-main #hero #hero-img {
-    position: absolute;
-    width: 100vw;
+#hero #hero-img {
     height: 100vh;
+    position: absolute;
     object-fit: cover;
     opacity: 0.5;
 }
 
-main #hero #hero-title {
+#hero #hero-title {
     font-size: 5vh;
     font-weight: bold;
 }
 
-main #hero #hero-description {
+#hero-description {
     font-size: 2vh;
 }
-/*END MAIN #HERO*/
+/*end hero*/
 
-
-/* START MAIN #FEATURES */
-main #features {
-    padding: 20vh 0 20vh 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18vw, 1fr));
-    gap: 2vh;
-    max-width: 90vw;
-    margin: 0 auto;
-    text-align: center;
-}
-
-main #features h2 {
-    grid-column: 1 / -1;
-    font-size: 4vh;
-    color: var(--text-color);
-}
-
-main #features article {
-    background: var(--card-bg);
-    color: var(--card-text);
-    padding: 3vh 2vw;
-    border-radius: 1vw;
-    box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-main #features article:hover {
-    transform: translateY(-1vh);
-    box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.3);
-}
-
-main #features article img {
-    max-width: 90%;
-    height: auto;
-    margin-bottom: 2vh;
-    border-radius: 0.8vw;
-}
-
-main #features article h3 {
-    font-size: 3vh;
-    margin-bottom: 1vh;
-}
-
-main #features article p {
-    font-size: 2vh;
-    opacity: 0.8;
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 1024px) {
-    main #features {
-        grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
-        
-    }
-}
-
-@media (max-width: 768px) {
-    main #features {
-        grid-template-columns: repeat(auto-fit, minmax(35vw, 1fr));
-        
-    }
-}
-
-@media (max-width: 480px) {
-    main #features {
-        grid-template-columns: 1fr;
-        
-    }
-
-    
-}
-/* END MAIN #FEATURES */
-
-
-/* Estilo de la galería */
-#gallery {
-    padding: 2vh;
-    height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-}
-
-#gallery h2 {
-    font-size: 4vh;
-    margin-top: 10vh;
-    display: flex;
-    justify-content: center;
-}
-
-
-#gallery-images {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-    height: 80vh;
-    width: 100vw;
-    flex-wrap: wrap;
-}
-
-#gallery-images img {
-    width: 40vw;
-    height: 35vh;
-    object-fit:cover;
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
-}
-
-/* SECCIONES PANTALLA COMPLETA */
-#delivery,
-#payment-methods,
-#contact {
-    width: 100vw;
-    min-height: 100vh; 
+/* section features */
+#features{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 12vh 5vw; 
-    color: var(--text-color);
-    transition: all 0.3s ease-in-out;
+    justify-content: center;
+    margin-top: 2vh;
+    gap: 2rem;
+    height: 100vh;
 }
-
-
-#delivery h2,
-#payment-methods h2,
-#contact h2 {
+#features h2{
     font-size: 5vh;
     font-weight: bold;
-    margin-bottom: 2vh;
-    color: var(--card-text);
+}
+#features #cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
 
-#delivery p,
-#payment-methods p,
-#contact p,
-#delivery ul,
-#payment-methods ul,
-#contact ul {
-    font-size: 3vh;
-    max-width: 60vw;
-    line-height: 1.8;
-    color: var(--text-color);
-}
-
-#delivery ul,
-#payment-methods ul,
-#contact ul {
-    list-style: none;
-    padding: 0;
-}
-
-#delivery li,
-#payment-methods li,
-#contact li {
-    font-size: 2.4vh;
-    margin: 2vh 3VW;
-    padding: 1vh 1vw;
-    border-radius: 2.5vw;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
+#cards article{
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-bottom: 2px solid var(--highlight-color);
+    padding: 3rem;
+    margin: 2rem;
+    transition: transform var(--transition-speed);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
+}
+#cards article:hover {
+    transform: scale(1.05);
+}
+#cards article img{
+    object-fit: cover;
+    width: 80%;
+}
+#cards article h3{
+    font-size: 3vh;
+    font-weight: bold;
+}
+#cards article p{
+    font-size: 2vh;
 }
 
-#delivery li:hover,
-#payment-methods li:hover,
-#contact li:hover {
-    background: var(--highlight-color);
-    color: #000;
-    transform: scale(1.05); 
+@media (max-width: 768px) {
+    #features {
+        height: auto;
+    }
+    #features #cards{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+/* end section features */
+
+/* section galeria de imagenes */
+#gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+    height: 100vh;
 }
 
-#delivery li::before,
-#payment-methods li::before,
-#contact li::before {
-     
-    font-size: 1.5rem;
-    color: var(--highlight-color);
+#gallery h2 {
+    margin-top: 4vh;
+    font-size: 5vh;
+    font-weight: bold;
 }
 
-/*END SECCIONES PANTALLA COMPLETA */
+#gallery #gallery-images {
+    
+    display: grid;
+    grid-template-columns: 30vw 30vw;
+    grid-template-rows: 30vh 30vh;
+    grid-template-areas:
+        "img1 img3 img2 "
+        "img4 img4 img2";
+    gap: 2rem;
+    margin: 2rem;
+}
+#gallery #gallery-images #img1 {
+    grid-area: img1;
+}
+#gallery #gallery-images #img2 {
+    grid-area: img2;
+}
+#gallery #gallery-images #img3 {
+    grid-area: img3;
+}
+#gallery #gallery-images #img4 {
+    grid-area: img4;
+}
+#gallery #gallery-images img {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    #gallery {
+        height: auto;
+    }
+    #gallery #gallery-images {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "img1"
+            "img2"
+            "img3"
+            "img4";
+    }
+}
+/* end section galeria de imagenes */
+
+/* section delivery Métodos de Pago y contacto */ 
+
+#delivery, #payment-methods, #contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 2rem;
+    background-color:var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1rem 2rem 1rem 2rem;
+    margin: 2rem;
+}
+
+#delivery h2, #payment-methods h2, #contact h2 {
+    font-size: 5vh;
+    font-weight: bold;
+}
+
+#delivery-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#delivery-options li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#delivery-options p {
+    font-size: 2vh;
+}
+
+#delivery img {
+    width: 5vh;
+}
+
+#payment-methods-content li section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+#payment-methods-content li section ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    gap: 5rem;
+}
+
+#payment-methods-content li section ul li img {
+    width: 10vh;
+}
+
+#contact ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+#contact ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+/* end section delivery Métodos de Pago y contacto */
+
+
 /*END MAIN */
 
 /* FOOTER */
 footer {
+    margin-top: 2vh;
     padding: 3vh 2vw;
     text-align: center;
     background: var(--bg-color);
     color: var(--text-color);
+    border-radius: 12px;
+    border-left: solid var(--highlight-color) ;
+    border-right: solid var(--highlight-color) ;
     font-size: 3vh;
 }
 /*END FOOTER */

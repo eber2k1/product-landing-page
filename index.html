@@ -69,33 +69,35 @@
         <!-- Características -->
         <section id="features">
             <h2>Características Principales</h2>
-            <article>
-                <h3>Pantalla</h3>
-                <img src="./img/pantalla-smartphone.png" alt="Pantalla del smartphone">
-                <p>
-                    La pantalla del Samsung Galaxy S25 Ultra es un panel Dynamic AMOLED 2X de 6.8 pulgadas con resolución QHD+ y tasa de refresco de 120 Hz. 
-                </p>
-            </article>
-            <article>
-                <h3>Cámara</h3>
-                <img src="./img/camara-smartphone.png" alt="Cámara del smartphone">
-                <p>
-                    Cámara principal de 108 MP, ultra gran angular de 12 MP, teleobjetivo de 10 MP y sensor de profundidad de 2 MP.
-                </p>
-            </article>
-            <article>
-                <h3>Procesador</h3>
-                <img src="./img/procesador.png" alt="Procesador del smartphone">
-                <p>
-                    Equipado con el procesador Exynos 2200, un chip de 5 nm con CPU de 8 núcleos y GPU Mali-G79 MP14.
-                </p>
-            </article>
-            <article>
-                <h3>Batería</h3>
-                <img src="./img/bateria-llena.png" alt="Batería del smartphone">
-                <p>
-                    Batería de 5000 mAh con carga rápida de 45W, carga inalámbrica de 15W y carga inversa de 4.5W.
-                </p>
+            <article id="cards">
+                <article>
+                    <h3>Pantalla</h3>
+                    <img src="./img/pantalla-smartphone.png" alt="Pantalla del smartphone">
+                    <p>
+                        La pantalla del Samsung Galaxy S25 Ultra es un panel Dynamic AMOLED 2X de 6.8 pulgadas con resolución QHD+ y tasa de refresco de 120 Hz. 
+                    </p>
+                </article>
+                <article>
+                    <h3>Cámara</h3>
+                    <img src="./img/camara-smartphone.png" alt="Cámara del smartphone">
+                    <p>
+                        Cámara principal de 108 MP, ultra gran angular de 12 MP, teleobjetivo de 10 MP y sensor de profundidad de 2 MP.
+                    </p>
+                </article>
+                <article>
+                    <h3>Procesador</h3>
+                    <img src="./img/procesador.png" alt="Procesador del smartphone">
+                    <p>
+                        Equipado con el procesador Exynos 2200, un chip de 5 nm con CPU de 8 núcleos y GPU Mali-G79 MP14.
+                    </p>
+                </article>
+                <article>
+                    <h3>Batería</h3>
+                    <img src="./img/bateria-llena.png" alt="Batería del smartphone">
+                    <p>
+                        Batería de 5000 mAh con carga rápida de 45W, carga inalámbrica de 15W y carga inversa de 4.5W.
+                    </p>
+                </article>
             </article>
         </section>
 
@@ -103,10 +105,10 @@
         <section id="gallery" aria-label="galeria de imagenes">
             <h2>Galería de Imágenes</h2>
                 <ul id="gallery-images">
-                    <li><img src="./img/samsung-foto-1.jpg" alt="Parte trasera del Samsung Galaxy S25 Ultra"></li>
-                    <li><img src="./img/samsung-foto-2.jpeg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
-                    <li><img src="./img/samsung-foto-3.jpg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
-                    <li><img src="./img/samsung-foto-4.jpg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
+                    <li id="img1"><img src="./img/samsung-foto-1.jpg" alt="Parte trasera del Samsung Galaxy S25 Ultra"></li>
+                    <li id="img2"><img src="./img/samsung-foto-2.jpeg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
+                    <li id="img3"><img src="./img/samsung-foto-3.jpg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
+                    <li id="img4"><img src="./img/samsung-foto-4.jpg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
                 </ul>
         </section>
 
@@ -116,9 +118,9 @@
             <h2 id="delivery-title">Opciones de Envío</h2>
             <p id="delivery-description">Ofrecemos envíos rápidos y seguros a nivel nacional e internacional.</p>
             <ul id="delivery-options">
-                <li>Envío estándar (5-7 días hábiles)</li>
-                <li>Envío exprés (2-3 días hábiles)</li>
-                <li>Envío internacional (7-14 días hábiles)</li>
+                <li> <img src="./img/delivery-icons/shipping-svgrepo-com.svg" alt=""> Envío estándar (5-7 días hábiles)</li>
+                <li> <img src="./img/delivery-icons/shipping-fast-svgrepo-com.svg" alt=""> Envío exprés (2-3 días hábiles)</li>
+                <li> <img src="./img/delivery-icons/airplane-svgrepo-com.svg" alt="">Envío internacional (7-14 días hábiles)</li>
             </ul>
             <p id="delivery-description-end">Seguimiento en tiempo real disponible para todas las órdenes.</p>
         </section>
@@ -127,11 +129,55 @@
         <section id="payment-methods" aria-labelledby="payment-title">
             <h2 id="payment-title">Métodos de Pago</h2>
             <p>Aceptamos diversas formas de pago para tu comodidad:</p>
-            <ul>
-                <li>💳 Tarjetas de crédito y débito (Visa, Mastercard, American Express)</li>
-                <li>🏦 Transferencias bancarias</li>
-                <li>📦 Pago contra entrega</li>
-                <li>🌍 Plataformas digitales (PayPal, Google Pay, Apple Pay)</li>
+            <ul id="payment-methods-content">
+                <li>
+                    <section>
+                        <h3>💳 Tarjetas de crédito y débito (Visa, Mastercard, American Express)</h3>
+                        <ul>
+                            <li>
+                                <img src="./img/methods-payments-icons/visa-classic-svgrepo-com.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="./img/methods-payments-icons/mastercard-full-svgrepo-com.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="./img/methods-payments-icons/american-express-svgrepo-com.svg" alt="">
+                            </li>
+                        </ul>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <h3>🏦 Transferencias bancarias</h3>
+                        <ul>
+                            <li>
+                                <img src="./img/methods-payments-icons/bank-card-svgrepo-com.svg" alt="">
+                            </li>
+                        </ul>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <h3>🌍 Plataformas digitales (PayPal, Google Pay, Apple Pay)</h3>
+                        <ul>
+                            <li>
+                                <img src="./img/methods-payments-icons/apple-pay-svgrepo-com.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="./img/methods-payments-icons/google-pay-svgrepo-com.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="./img/methods-payments-icons/paypal-svgrepo-com.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="./img/methods-payments-icons/plin-seeklogo.png" alt="">
+                            </li>
+                            <li>
+                                <img src="./img/methods-payments-icons/yape-seeklogo.png" alt="">
+                            </li>
+                        </ul>
+                    </section>
+                </li>
             </ul>
         </section>
 
@@ -140,10 +186,10 @@
             <h2 id="contact-title">Contacto</h2>
             <p>Ponte en contacto con nosotros a través de los siguientes medios:</p>
             <ul>
-                <li>📧 Email: soporte@empresa.com</li>
-                <li>📞 Teléfono: +123 456 7890</li>
-                <li>📍 Dirección: Calle Falsa 123, Ciudad, País</li>
-                <li>⏰ Horario de atención: Lunes a Viernes, 9 AM - 6 PM</li>
+                <li><h3>📧 Email: soporte@empresa.com</h3></li>
+                <li><h3>📞 Teléfono: +123 456 7890</h3></li>
+                <li><h3>📍 Dirección: Calle Falsa 123, Ciudad, País</h3></li>
+                <li><h3>⏰ Horario de atención: Lunes a Viernes, 9 AM - 6 PM</h3></li>
             </ul>
         </section>
     </main>

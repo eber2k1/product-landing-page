@@ -34,6 +34,37 @@ footer → Usa etiquetas p y a correctamente para contenido textual e hipervínc
 - Diseño grid adaptativo
 - Formularios accesibles con ARIA labels
 
+#### 🎨 Implementación Bootstrap
+- **Layout Grid System**
+  - Grid template areas para layout responsivo
+  - Breakpoints personalizados (md: 768px)
+  - Contenedores fluidos con `container-fluid`
+
+- **Componentes**
+  - Cards para cada paso del proceso
+  - List group para barra de progreso
+  - Navbar responsive con Bootstrap
+  - Formularios con validación
+  - Botones estilizados (`btn-primary`, `btn-success`)
+
+- **Utilidades**
+  - Flexbox: `d-flex`, `align-items-center`
+  - Espaciado: `mb-3`, `py-3`, `me-2`
+  - Posicionamiento: `sticky-top`, `position-fixed`
+  - Texto: `text-white`, `fw-bold`
+
+- **Dark Mode**
+  - Implementación con `data-bs-theme`
+  - Toggle button flotante
+  - Persistencia con localStorage
+  - Detección de preferencias del sistema
+
+- **Accesibilidad**
+  - ARIA labels en elementos interactivos
+  - Roles semánticos
+  - Estructura jerárquica con headings
+  - Navegación por teclado
+
 ### 3. Página de Testimonios (testimonios.html)
 - Grid de tarjetas de testimonios
 - Diseño responsive con grid y flexbox

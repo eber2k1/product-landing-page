@@ -1,120 +1,212 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Compra tu Samsung Galaxy S25 ULTRA con facilidad. Sigue el proceso de compra paso a paso con accesibilidad mejorada.">
     <title>Compra Samsung Galaxy S25 ULTRA - Proceso Paso a Paso</title>
-    <link rel="stylesheet" href="./css/styles-compra.css">
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const toggleButton = document.getElementById("theme-toggle");
-            const navToggle = document.getElementById("nav-toggle");
-            const navMenu = document.getElementById("nav-menu");
-            const body = document.body;
-
-            // Detectar preferencia del sistema operativo
-            if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-                body.classList.add("light-mode");
-            }
-
-            toggleButton.addEventListener("click", () => {
-                body.classList.toggle("light-mode");
-            });
-
-            navToggle.addEventListener("click", () => {
-                navMenu.classList.toggle("show");
-            });
-        });
-    </script>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <!-- Navegación (Menú) -->
-    <header>
-        <nav aria-label="Menú principal">
-            <div id="logo">
-                <a href="./index.html" aria-label="Ir a la página de inicio">
-                    <p>SAMSUNG GALAXY</p>
+<body class="min-vh-100 d-grid" style="grid-template-areas: 
+    'header header header' 
+    'aside main main' 
+    'footer footer footer';
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 4fr 1fr;">
+    
+    <!-- Navegación (menu) fixed on top -->
+    <header class="sticky-top w-100" style="grid-area: header;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary border-bottom" aria-label="Menú principal">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html" aria-label="Ir a la página de inicio">
+                    <p class="mb-0 fw-bold">SAMSUNG GALAXY</p>
                 </a>
+                <div class="navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./testimonios.html">Testimonios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./compra.html">Compra</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./testimonios.html" >Testimonios</a></li>
-                <li><a href="./compra.html" aria-current="page">Compra</a></li>
-            </ul>
-            <button class="navbar-toggler" id="nav-toggle">
-                ☰
-            </button>
         </nav>
     </header>
 
-    <main id="proceso-compra">
-        <h1>Proceso de Compra del Samsung Galaxy S25 ULTRA</h1>
-
-        <!-- Paso 1: Resumen del Producto -->
-        <section id="step1" aria-labelledby="titulo-step1">
-            <h2 id="titulo-step1">Resumen del Producto</h2>
-            <p><strong>Producto:</strong> Samsung Galaxy S25 ULTRA</p>
-            <p><strong>Precio:</strong> $999.99</p>
-            <button class="btn" onclick="selectStep(2)" aria-label="Ir al cálculo de envío">Continuar</button>
-        </section>
-
-        <!-- Paso 2: Cálculo de Envío -->
-        <section id="step2" class="hidden" aria-labelledby="titulo-step2">
-            <h2 id="titulo-step2">Cálculo de Envío</h2>
-            <form>
-                <label for="address">Dirección de Envío:</label>
-                <input type="text" id="address" placeholder="Ingresa tu dirección" aria-required="true">
-
-                <label for="shipping">Método de Envío:</label>
-                <select id="shipping">
-                    <option value="standard">Estándar - $5.00</option>
-                    <option value="express">Express - $15.00</option>
-                </select>
-            </form>
-            <button class="btn" onclick="selectStep(3)" aria-label="Ir al método de pago">Siguiente</button>
-        </section>
-
-        <!-- Paso 3: Método de Pago -->
-        <section id="step3" class="hidden" aria-labelledby="titulo-step3">
-            <h2 id="titulo-step3">Método de Pago</h2>
-            <form>
-                <label for="card">Número de Tarjeta:</label>
-                <input type="text" id="card" placeholder="1234 5678 9012 3456" aria-required="true">
-
-                <label for="expiration">Fecha de Expiración:</label>
-                <input type="text" id="expiration" placeholder="MM/AA" aria-required="true">
-
-                <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" placeholder="123" aria-required="true">
-            </form>
-            <button class="btn" onclick="alert('Compra completada!')" aria-label="Finalizar compra">Finalizar Compra</button>
-        </section>
-    </main>
-
-    <aside aria-label="Progreso del proceso de compra">
-        <h2>Progreso</h2>
-        <div class="step active" onclick="selectStep(1)" role="button" tabindex="0">
-            <span class="icon">🛒</span> Seleccionar Producto
-        </div>
-        <div class="step" onclick="selectStep(2)" role="button" tabindex="0">
-            <span class="icon">🚚</span> Cálculo de Envío
-        </div>
-        <div class="step" onclick="selectStep(3)" role="button" tabindex="0">
-            <span class="icon">💳</span> Método de Pago
+    <!-- Aside: On mobile full width above main, on tablet+ left side -->
+    <aside class=" p-3" style="grid-area: aside;" aria-label="Progreso del proceso de compra">
+        <h2 class="h5 mb-3">Progreso</h2>
+        <div class="list-group">
+            <button class="list-group-item list-group-item-action active d-flex align-items-center" role="button">
+                <span class="me-2">🛒</span> Seleccionar Producto
+            </button>
+            <button class="list-group-item list-group-item-action d-flex align-items-center" role="button">
+                <span class="me-2">🚚</span> Cálculo de Envío
+            </button>
+            <button class="list-group-item list-group-item-action d-flex align-items-center" role="button">
+                <span class="me-2">💳</span> Método de Pago
+            </button>
         </div>
     </aside>
 
-    <footer aria-label="Pie de página">
-        <p>&copy; 2025 Todos los derechos reservados a <strong>Eber Solano</strong>.</p>
-        <p>Síguenos en:
-            <a href="#" aria-label="Facebook de la tienda">Facebook</a> |
-            <a href="#" aria-label="Twitter de la tienda">Twitter</a> |
-            <a href="#" aria-label="Instagram de la tienda">Instagram</a>
-        </p>
+    <!-- Main: On mobile full width below aside, on tablet+ right side -->
+    <main id="proceso-compra" class="p-4" style="grid-area: main;">
+        <h1 class="mb-4">Proceso de Compra del Samsung Galaxy S25 ULTRA</h1>
+
+        <!-- Paso 1: Resumen del Producto -->
+        <section id="step1" aria-labelledby="titulo-step1" class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h2 id="titulo-step1" class="h5 mb-0">Resumen del Producto</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Producto:</strong> Samsung Galaxy S25 ULTRA</p>
+                <p><strong>Precio:</strong> $999.99</p>
+                <button class="btn btn-primary" aria-label="Ir al cálculo de envío">Continuar</button>
+            </div>
+        </section>
+
+        <!-- Paso 2: Cálculo de Envío -->
+        <section id="step2" class="card mb-4" aria-labelledby="titulo-step2">
+            <div class="card-header bg-primary text-white">
+                <h2 id="titulo-step2" class="h5 mb-0">Cálculo de Envío</h2>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Dirección de Envío:</label>
+                        <input type="text" class="form-control" id="address" placeholder="Ingresa tu dirección" aria-required="true">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="shipping" class="form-label">Método de Envío:</label>
+                        <select id="shipping" class="form-select">
+                            <option value="standard">Estándar - $5.00</option>
+                            <option value="express">Express - $15.00</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" aria-label="Ir al método de pago">Siguiente</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Paso 3: Método de Pago -->
+        <section id="step3" class="card mb-4" aria-labelledby="titulo-step3">
+            <div class="card-header bg-primary text-white">
+                <h2 id="titulo-step3" class="h5 mb-0">Método de Pago</h2>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="card" class="form-label">Número de Tarjeta:</label>
+                        <input type="text" class="form-control" id="card" placeholder="1234 5678 9012 3456" aria-required="true">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="expiration" class="form-label">Fecha de Expiración:</label>
+                        <input type="text" class="form-control" id="expiration" placeholder="MM/AA" aria-required="true">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cvv" class="form-label">CVV:</label>
+                        <input type="text" class="form-control" id="cvv" placeholder="123" aria-required="true">
+                    </div>
+                    <button class="btn btn-success" onclick="alert('Compra completada!')" aria-label="Finalizar compra">Finalizar Compra</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer at the bottom occupying full width -->
+    <footer class="bg-dark text-white py-3" style="grid-area: footer;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-1">&copy; Todos los derechos reservados a eber2k1.</p>
+                    <p class="mb-0">
+                        Síguenos en:
+                        <a href="#" class="text-white">Facebook</a> |
+                        <a href="#" class="text-white">Twitter</a> |
+                        <a href="#" class="text-white">Instagram</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     </footer>
-    <button id="theme-toggle" aria-label="Cambiar entre modo claro y oscuro">Modo Claro/Oscuro</button>
+
+    <!-- Floating dark mode toggle button -->
+    <button id="theme-toggle" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3 shadow" 
+        aria-label="Cambiar entre modo claro y oscuro">
+        <i class="bi bi-moon-fill" id="dark-icon"></i>
+        <i class="bi bi-sun-fill d-none" id="light-icon"></i>
+    </button>
+
+    <!-- Bootstrap 5.3 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <script>
+        // Media query para cambiar el layout en pantallas pequeñas
+        function updateGridLayout() {
+            if (window.innerWidth < 768) { // Tamaño de tablet hacia abajo (Bootstrap md breakpoint)
+                document.body.style.gridTemplateAreas = 
+                    "'header header header'" +
+                    "'aside aside aside'" +
+                    "'main main main'" +
+                    "'footer footer footer'";
+            } else {
+                document.body.style.gridTemplateAreas = 
+                    "'header header header'" +
+                    "'aside main main'" +
+                    "'footer footer footer'";
+            }
+        }
+
+        // Ejecutar al cargar la página y cuando cambie el tamaño de la ventana
+        window.addEventListener('load', updateGridLayout);
+        window.addEventListener('resize', updateGridLayout);
+
+        // Dark mode toggle functionality
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.getElementById("theme-toggle");
+            const darkIcon = document.getElementById("dark-icon");
+            const lightIcon = document.getElementById("light-icon");
+            const html = document.documentElement;
+            
+            // Check system preference
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                html.setAttribute('data-bs-theme', 'dark');
+                darkIcon.classList.add('d-none');
+                lightIcon.classList.remove('d-none');
+            }
+            
+            // Check saved preference
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                html.setAttribute('data-bs-theme', 'dark');
+                darkIcon.classList.add('d-none');
+                lightIcon.classList.remove('d-none');
+            } else if (savedTheme === "light") {
+                html.setAttribute('data-bs-theme', 'light');
+                darkIcon.classList.remove('d-none');
+                lightIcon.classList.add('d-none');
+            }
+            
+            // Toggle theme
+            toggleButton.addEventListener("click", () => {
+                if (html.getAttribute('data-bs-theme') === 'dark') {
+                    html.setAttribute('data-bs-theme', 'light');
+                    darkIcon.classList.remove('d-none');
+                    lightIcon.classList.add('d-none');
+                    localStorage.setItem("theme", "light");
+                } else {
+                    html.setAttribute('data-bs-theme', 'dark');
+                    darkIcon.classList.add('d-none');
+                    lightIcon.classList.remove('d-none');
+                    localStorage.setItem("theme", "dark");
+                }
+            });
+        });
+    </script>
 </body>
 </html>

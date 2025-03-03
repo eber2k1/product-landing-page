@@ -4,205 +4,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descubre el nuevo Samsung Galaxy S25 Ultra con pantalla Dynamic AMOLED, cámara de 108 MP y batería de 5000 mAh.">
+    <meta name="description"
+        content="Descubre el nuevo Samsung Galaxy S25 Ultra con pantalla Dynamic AMOLED, cámara de 108 MP y batería de 5000 mAh.">
     <meta name="keywords" content="Samsung, Galaxy S25 Ultra, smartphone, tecnología, celular, cámara, batería">
     <meta name="author" content="eber2k1">
     <title>Samsung Galaxy S25 Ultra</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const toggleButton = document.getElementById("theme-toggle");
-            const navToggle = document.getElementById("nav-toggle");
-            const navMenu = document.getElementById("nav-menu");
-            const body = document.body;
+        // Configuración de Tailwind
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
 
-            // Detectar preferencia del sistema operativo
-            if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-                body.classList.add("light-mode");
+                }
             }
-
-            toggleButton.addEventListener("click", () => {
-                body.classList.toggle("light-mode");
-            });
-
-            navToggle.addEventListener("click", () => {
-                navMenu.classList.toggle("show");
-            });
-        });
+        }
     </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .section-height {
+                min-height: 100vh;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="font-mono bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100">
     <!-- Navegación (menu)-->
-    <header>
-        <nav aria-label="Menú principal">
-            <div id="logo">
-                <a href="./index.html" aria-label="Ir a la página de inicio">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
+        <nav class="container mx-auto px-4 py-3 flex items-center justify-between" aria-label="Menú principal">
+            <div class="font-bold text-lg text-blue-950 dark:text-white">
+                <a class="flex items-center" href="./index.html" aria-label="Ir a la página de inicio">
                     <p>SAMSUNG GALAXY</p>
                 </a>
             </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#features" aria-current="page">Características</a></li>
-                <li><a href="#gallery">Galería de imagenes </a></li>
-                <li><a href="#delivery">Envíos</a></li>
-                <li><a href="#payment-methods">Pagos</a></li>
-                <li><a href="#contact">Contacto</a></li>
-                <li><a href="./testimonios.html" >Testimonios</a></li>
-                <li><a href="./compra.html" >Compra</a></li>
+            <ul class="flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 items-center w-full md:w-auto">
+                <li><a class="text-xs md:text-lg  hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="#features">Características</a></li>
+                <li><a class="text-xs md:text-lg  hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="#gallery">Galería</a></li>
+                <li><a class="text-xs md:text-lg  hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="#delivery">Envíos</a></li>
+                <li><a class="text-xs md:text-lg  hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="#payment-methods">Pagos</a></li>
+                <li><a class="text-xs md:text-lg  hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="#contact">Contacto</a></li>
+                <li><a class="text-xs md:text-lg  hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="./testimonios.html">Testimonios</a></li>
+                <li><a class="text-xs md:text-lg  px-4 py-2 bg-blue-950 text-white rounded-lg hover:bg-blue-800 transition-colors" href="./compra.html">Compra</a></li>
             </ul>
-            <button class="navbar-toggler" id="nav-toggle">
-                ☰
-            </button>
         </nav>
     </header>
-    
+    <!--END Navegación (menu)-->
+    <!-- Main -->
     <main>
         <!-- Hero del SAMSUNG -->
-        <section id="hero" aria-labelledby="hero-title">
-            <img id="hero-img" src="./img/galaxy-s25-ultra-features-kv-g.jpg" alt="Imagen del smartphone Samsung S25 Ultra">
-            <h1 id="hero-title">SAMSUNG GALAXY S25 ULTRA</h1>
-            <p id="hero-description">
-                Descubre el Samsung Galaxy 2025, el smartphone que redefine la experiencia móvil con tecnología de vanguardia, diseño elegante y un rendimiento sin límites.
-            </p>
+        <section class="section-height flex flex-col items-center justify-center relative overflow-hidden pt-16"
+            id="hero" aria-labelledby="hero-title">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover object-center opacity-70 dark:opacity-50"
+                    src="../img/galaxy-s25-ultra-features-kv-g.jpg" alt="Imagen del smartphone Samsung S25 Ultra">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white dark:to-samsung-dark"></div>
+            </div>
+            <div class="container mx-auto px-6 py-12 z-10 text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 text-blue-900 dark:text-white leading-tight"
+                    id="hero-title">SAMSUNG GALAXY S25 ULTRA</h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-gray-800 dark:text-gray-200"
+                    id="hero-description">
+                    Descubre el Samsung Galaxy 2025, el smartphone que redefine la experiencia móvil con tecnología de
+                    vanguardia, diseño elegante y un rendimiento sin límites.
+                </p>
+            </div>
+
         </section>
+        <!--END Hero del SAMSUNG -->
 
         <!-- Características -->
-        <section id="features">
-            <h2>Características Principales</h2>
-            <article id="cards">
-                <article>
-                    <h3>Pantalla</h3>
-                    <img src="./img/pantalla-smartphone.png" alt="Pantalla del smartphone">
-                    <p>
-                        La pantalla del Samsung Galaxy S25 Ultra es un panel Dynamic AMOLED 2X de 6.8 pulgadas con resolución QHD+ y tasa de refresco de 120 Hz. 
+        <section class="section-height py-20 bg-gray-50 dark:bg-gray-900" id="features">
+            <h2 class="text-4xl font-bold text-center mb-16 text-blue-900 dark:text-white">Características Principales
+            </h2>
+            <article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="cards">
+                <article
+                    class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-transform hover:scale-105 m-6 p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-400">Pantalla</h3>
+                    <img class="h-22 object-contain" src="./img/pantalla-smartphone.png" alt="Pantalla del smartphone">
+                    <p class="text-gray-700 dark:text-gray-300">
+                        La pantalla del Samsung Galaxy S25 Ultra es un panel Dynamic AMOLED 2X de 6.8 pulgadas
+                        con resolución QHD+ y tasa de refresco de 120 Hz.
                     </p>
                 </article>
-                <article>
-                    <h3>Cámara</h3>
-                    <img src="./img/camara-smartphone.png" alt="Cámara del smartphone">
-                    <p>
-                        Cámara principal de 108 MP, ultra gran angular de 12 MP, teleobjetivo de 10 MP y sensor de profundidad de 2 MP.
+                <article
+                    class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-transform hover:scale-105 m-6 p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-400">Cámara</h3>
+                    <img class="h-22 object-contain" src="./img/camara-smartphone.png" alt="Cámara del smartphone">
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Cámara principal de 108 MP, ultra gran angular de 12 MP, teleobjetivo de 10 MP y sensor de
+                        profundidad de 2 MP.
                     </p>
                 </article>
-                <article>
-                    <h3>Procesador</h3>
-                    <img src="./img/procesador.png" alt="Procesador del smartphone">
-                    <p>
-                        Equipado con el procesador Exynos 2200, un chip de 5 nm con CPU de 8 núcleos y GPU Mali-G79 MP14.
+                <article
+                    class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-transform hover:scale-105 m-6 p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-400">Procesador</h3>
+                    <img class="h-22 object-contain" src="./img/procesador.png" alt="Procesador del smartphone">
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Equipado con el procesador Exynos 2200, un chip de 5 nm con CPU de 8 núcleos y GPU Mali-G79
+                        MP14.
                     </p>
                 </article>
-                <article>
-                    <h3>Batería</h3>
-                    <img src="./img/bateria-llena.png" alt="Batería del smartphone">
-                    <p>
+                <article
+                    class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-transform hover:scale-105 m-6 p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-400">Batería</h3>
+                    <img class="h-22 object-contain" src="./img/bateria-llena.png" alt="Batería del smartphone">
+                    <p class="text-gray-700 dark:text-gray-300">
                         Batería de 5000 mAh con carga rápida de 45W, carga inalámbrica de 15W y carga inversa de 4.5W.
                     </p>
                 </article>
             </article>
         </section>
+        <!--END Características -->
 
         <!-- Galería de imágenes -->
-        <section id="gallery" aria-label="galeria de imagenes">
-            <h2>Galería de Imágenes</h2>
-                <ul id="gallery-images">
-                    <li id="img1"><img src="./img/samsung-foto-1.jpg" alt="Parte trasera del Samsung Galaxy S25 Ultra"></li>
-                    <li id="img2"><img src="./img/samsung-foto-2.jpeg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
-                    <li id="img3"><img src="./img/samsung-foto-3.jpg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
-                    <li id="img4"><img src="./img/samsung-foto-4.jpg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
-                </ul>
+        <section class="section-height py-20 mx-auto px-6" id="gallery" aria-label="galeria de imagenes">
+            <h2 class="text-4xl font-bold text-center mb-16 text-blue-800 dark:text-white">Galería de Imágenes</h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="gallery-images">
+                <li class="overflow-hidden rounded-xl shadow-lg " id="img1"><img
+                        class="w-full h-full object-cover object-center transform transition-transform hover:scale-110"
+                        src="./img/samsung-foto-1.jpg" alt="Parte trasera del Samsung Galaxy S25 Ultra"></li>
+                <li class="overflow-hidden rounded-xl shadow-lg " id="img2"><img
+                        class="w-full h-full object-cover object-center transform transition-transform hover:scale-110"
+                        src="./img/samsung-foto-2.jpeg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
+                <li class="overflow-hidden rounded-xl shadow-lg" id="img3"><img
+                        class="w-full h-full object-cover object-center transform transition-transform hover:scale-110"
+                        src="./img/samsung-foto-3.jpg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
+                <li class="overflow-hidden rounded-xl shadow-lg" id="img4"><img
+                        class="w-full h-full object-cover object-center transform transition-transform hover:scale-110"
+                        src="./img/samsung-foto-4.jpg" alt="Imagen del Samsung Galaxy S25 Ultra"></li>
+            </ul>
         </section>
+        <!--END Galería de imágenes -->
 
 
         <!-- Delivery -->
-        <section id="delivery" aria-labelledby="delivery-title">
-            <h2 id="delivery-title">Opciones de Envío</h2>
-            <p id="delivery-description">Ofrecemos envíos rápidos y seguros a nivel nacional e internacional.</p>
-            <ul id="delivery-options">
-                <li> <img src="./img/delivery-icons/shipping-svgrepo-com.svg" alt=""> <h3>Envío estándar (5-7 días hábiles)</h3></li>
-                <li> <img src="./img/delivery-icons/shipping-fast-svgrepo-com.svg" alt=""> <h3>Envío exprés (2-3 días hábiles)</h3></li>
-                <li> <img src="./img/delivery-icons/airplane-svgrepo-com.svg" alt=""><h3>Envío internacional (7-14 días hábiles)</h3></li>
+        <section class="section-height py-20 bg-gray-50 dark:bg-gray-900 mx-auto px-6" id="delivery"
+            aria-labelledby="delivery-title">
+            <h2 class="text-4xl font-bold text-center mb-6 text-blue-800 dark:text-white" id="delivery-title">Opciones
+                de Envío</h2>
+            <p class="text-xl text-center max-w-3xl mx-auto mb-16 text-gray-700 dark:text-gray-300"
+                id="delivery-description">Ofrecemos envíos rápidos y seguros a nivel nacional e internacional.</p>
+            <ul class="grid grid-cols-1 md:grid-cols-3 gap-8" id="delivery-options">
+                <li
+                    class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 text-center flex flex-col items-center justify-center transform transition-transform hover:scale-105">
+                    <img class="h-20 w-20" src="./img/delivery-icons/shipping-svgrepo-com.svg" alt="">
+                    <h3 class="text-xl font-semibold text-blue-900 dark:text-blue-400 mt-4">Envío estándar (5-7 días
+                        hábiles)</h3>
+                </li>
+                <li
+                    class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 text-center flex flex-col items-center justify-center transform transition-transform hover:scale-105">
+                    <img class="h-20 w-20" src="./img/delivery-icons/shipping-fast-svgrepo-com.svg" alt="">
+                    <h3 class="text-xl font-semibold text-blue-900 dark:text-blue-400 mt-4">Envío exprés (2-3 días
+                        hábiles)</h3>
+                </li>
+                <li
+                    class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 text-center flex flex-col items-center justify-center transform transition-transform hover:scale-105">
+                    <img class="h-20 w-20" src="./img/delivery-icons/airplane-svgrepo-com.svg" alt="">
+                    <h3 class="text-xl font-semibold text-blue-900 dark:text-blue-400 mt-4">Envío internacional
+                        (7-14 días hábiles)</h3>
+                </li>
             </ul>
-            <p id="delivery-description-end">Seguimiento en tiempo real disponible para todas las órdenes.</p>
+
+            <p class="text-center mt-12 text-gray-700 dark:text-gray-300" id="delivery-description-end">Seguimiento en
+                tiempo real disponible para todas las órdenes.</p>
         </section>
+        <!--END Delivery -->
 
         <!-- Métodos de Pago -->
-        <section id="payment-methods" aria-labelledby="payment-title">
-            <h2 id="payment-title">Métodos de Pago</h2>
-            <p>Aceptamos diversas formas de pago para tu comodidad:</p>
-            <ul id="payment-methods-content">
-                <li>
+        <section class="section-height py-20 mx-auto px-6" id="payment-methods" aria-labelledby="payment-title">
+            <h2 class="text-4xl font-bold text-center mb-6 text-blue-800 dark:text-white" id="payment-title">Métodos de
+                Pago</h2>
+            <p class="text-xl text-center max-w-3xl mx-auto mb-16 text-gray-700 dark:text-gray-300">Aceptamos diversas
+                formas de pago para tu comodidad:</p>
+            <ul class="grid grid-cols-1 lg:grid-cols-3 gap-8 " id="payment-methods-content">
+                <li class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-semibold mb-6 text-blue-800 dark:text-blue-400">💳 Tarjetas de
+                        crédito y débito</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <img src="../img/methods-payments-icons/visa-classic-svgrepo-com.svg" alt="Visa" class="h-12">
+                        <img src="../img/methods-payments-icons/mastercard-full-svgrepo-com.svg" alt="Mastercard"
+                            class="h-12">
+                        <img src="../img/methods-payments-icons/american-express-svgrepo-com.svg" alt="American Express"
+                            class="h-12">
+                    </div>
+                </li>
+                <li class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-8">
                     <section>
-                        <h3>💳 Tarjetas de crédito y débito (Visa, Mastercard, American Express)</h3>
-                        <ul>
-                            <li>
-                                <img src="./img/methods-payments-icons/visa-classic-svgrepo-com.svg" alt="">
-                            </li>
-                            <li>
-                                <img src="./img/methods-payments-icons/mastercard-full-svgrepo-com.svg" alt="">
-                            </li>
-                            <li>
-                                <img src="./img/methods-payments-icons/american-express-svgrepo-com.svg" alt="">
-                            </li>
-                        </ul>
+                        <h3 class="text-xl font-semibold mb-6 text-blue-800 dark:text-blue-400">🏦 Transferencias
+                            bancarias</h3>
+                        <div class="flex justify-center">
+                            <img src="../img/methods-payments-icons/bank-card-svgrepo-com.svg" alt="Banco" class="h-12">
+                        </div>
                     </section>
                 </li>
-                <li>
-                    <section>
-                        <h3>🏦 Transferencias bancarias</h3>
-                        <ul>
-                            <li>
-                                <img src="./img/methods-payments-icons/bank-card-svgrepo-com.svg" alt="">
-                            </li>
-                        </ul>
-                    </section>
-                </li>
-                <li>
-                    <section>
-                        <h3>🌍 Plataformas digitales (PayPal, Google Pay, Apple Pay)</h3>
-                        <ul>
-                            <li>
-                                <img src="./img/methods-payments-icons/apple-pay-svgrepo-com.svg" alt="">
-                            </li>
-                            <li>
-                                <img src="./img/methods-payments-icons/google-pay-svgrepo-com.svg" alt="">
-                            </li>
-                            <li>
-                                <img src="./img/methods-payments-icons/paypal-svgrepo-com.svg" alt="">
-                            </li>
-                            <li>
-                                <img src="./img/methods-payments-icons/plin-seeklogo.png" alt="">
-                            </li>
-                            <li>
-                                <img src="./img/methods-payments-icons/yape-seeklogo.png" alt="">
-                            </li>
-                        </ul>
-                    </section>
+                <li class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-semibold mb-6 text-blue-800 dark:text-blue-400">🌍 Plataformas
+                        digitales</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <img src="../img/methods-payments-icons/apple-pay-svgrepo-com.svg" alt="Apple Pay" class="h-10">
+                        <img src="../img/methods-payments-icons/google-pay-svgrepo-com.svg" alt="Google Pay"
+                            class="h-10">
+                        <img src="../img/methods-payments-icons/paypal-svgrepo-com.svg" alt="PayPal" class="h-10">
+                        <img src="../img/methods-payments-icons/plin-seeklogo.png" alt="Plin" class="h-10">
+                        <img src="../img/methods-payments-icons/yape-seeklogo.png" alt="Yape" class="h-10">
+                    </div>
                 </li>
             </ul>
         </section>
 
+        <!--END Métodos de Pago -->
+
         <!-- Contacto -->
-        <section id="contact" aria-labelledby="contact-title">
-            <h2 id="contact-title">Contacto</h2>
-            <p>Ponte en contacto con nosotros a través de los siguientes medios:</p>
-            <ul>
-                <li><h3>📧 Email: soporte@empresa.com</h3></li>
-                <li><h3>📞 Teléfono: +123 456 7890</h3></li>
-                <li><h3>📍 Dirección: Calle Falsa 123, Ciudad, País</h3></li>
-                <li><h3>⏰ Horario de atención: Lunes a Viernes, 9 AM - 6 PM</h3></li>
+        <section class="section-height py-20 bg-gray-50 dark:bg-gray-900 mx-auto px-6" id="contact"
+            aria-labelledby="contact-title">
+            <h2 class="text-4xl font-bold text-center mb-6 text-blue-800 dark:text-white" id="contact-title">Contacto
+            </h2>
+            <p class="text-xl text-center max-w-3xl mx-auto mb-16 text-gray-700 dark:text-gray-300">Ponte en contacto
+                con nosotros a través de los siguientes medios:</p>
+            <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <li class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center">
+                    <h3 class="text-lg font-semibold text-samsung-blue dark:text-blue-400 mb-2">📧 Email:
+                        soporte@empresa.com</h3>
+                </li>
+                <li class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center">
+                    <h3 class="text-lg font-semibold text-samsung-blue dark:text-blue-400 mb-2">📞 Teléfono: +123 456
+                        7890</h3>
+                </li>
+                <li class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center">
+                    <h3 class="text-lg font-semibold text-samsung-blue dark:text-blue-400 mb-2">📍 Dirección: Avenida easyToCome 123, Lima, Peru</h3>
+                </li>
+                <li class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center">
+                    <h3 class="text-lg font-semibold text-samsung-blue dark:text-blue-400 mb-2">⏰ Horario de atención:
+                        Lunes a Viernes, 9 AM - 6 PM</h3>
+                </li>
             </ul>
         </section>
+        <!--END Contacto -->
     </main>
-    
+    <!--END main -->
+
     <!-- Pie de página -->
-    <footer aria-label="Pie de página">
-        <p >&copy; Todos los derechos reservados a eber2k1.</p>
-        <p>Siguenos en:
-            <a href="#">Facebook</a> |
-            <a href="#">Twitter</a> |
-            <a href="#">Instagram</a>
-        </p>
+    <footer aria-label="Pie de página" class="bg-blue-950 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="mb-4 md:mb-0">&copy; Todos los derechos reservados a eber2k1.</p>
+                <p class="flex items-center">
+                    Síguenos en:
+                    <a href="#" class="ml-2 mx-1 hover:text-gray-300 transition-colors">Facebook</a> |
+                    <a href="#" class="mx-1 hover:text-gray-300 transition-colors">Twitter</a> |
+                    <a href="#" class="mx-1 hover:text-gray-300 transition-colors">Instagram</a>
+                </p>
+            </div>
+        </div>
     </footer>
-    <button id="theme-toggle" aria-label="Cambiar entre modo claro y oscuro">Modo Claro/Oscuro</button>
+    <!--END Pie de página -->
+
+    <!-- Botón de cambio de claro a oscuro-->
+    <button id="theme-toggle"
+        class="fixed bottom-6 right-6 z-50 p-3 rounded-full shadow-lg text-white transition-all duration-300 ease-in-out  hover:shadow-xl transform hover:scale-110 dark:bg-white dark:text-slate-900 bg-slate-900"
+        aria-label="Cambiar entre modo claro y oscuro">
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:hidden" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden dark:block" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+    </button>
+    <!--END Botón de cambio de claro a oscuro-->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.getElementById("theme-toggle");
+            const html = document.documentElement;
+
+            // Detectar preferencia del sistema operativo para el tema
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                html.classList.add("dark");
+            }
+
+            // Verificar si hay una preferencia guardada
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                html.classList.add("dark");
+            } else if (savedTheme === "light") {
+                html.classList.remove("dark");
+            }
+
+            // Cambiar entre temas
+            toggleButton.addEventListener("click", () => {
+                if (html.classList.contains("dark")) {
+                    html.classList.remove("dark");
+                    localStorage.setItem("theme", "light");
+                } else {
+                    html.classList.add("dark");
+                    localStorage.setItem("theme", "dark");
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

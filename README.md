@@ -71,20 +71,37 @@ footer → Usa etiquetas p y a correctamente para contenido textual e hipervínc
 - Sección lateral complementaria
 - Transiciones suaves en interacciones
 
-## 🎨 Características Comunes
-- Modo Oscuro/Claro con variables CSS
-- Diseño totalmente responsive
-- Menú de navegación adaptativo
-- Accesibilidad mejorada con ARIA
-- Transiciones y animaciones suaves
-- Sistema de grid y flexbox para layouts
-- Paleta de colores consistente
+## 🎨 Implementación Tailwind CSS
 
-## 🔍 Prompt Usado
-```
-Implementar un Modo Oscuro (Dark Mode) con variables CSS
-```
+### Diseño Responsivo
+- `grid md:grid-cols-3` - Layout principal
+- `flex flex-wrap` - Navegación adaptativa
+- `md:flex-row` - Cambios de dirección en diferentes breakpoints
+- `container mx-auto` - Contenedores responsivos
 
+### Dark Mode
+- `dark:bg-gray-800` - Fondos oscuros
+- `dark:text-white` - Texto en modo oscuro
+- `dark:hover:text-blue-200` - Interacciones en modo oscuro
+- Toggle theme con `localStorage`
+
+### Componentes UI
+- Cards: `bg-white rounded-xl shadow-lg`
+- Buttons: `px-4 py-2 bg-blue-950 text-white rounded-lg`
+- Navigation: `fixed top-0 backdrop-blur-md`
+- Images: `object-cover object-center`
+
+### Animaciones y Transiciones
+- `transform transition-transform hover:scale-105`
+- `transition-colors duration-300`
+- `hover:shadow-xl`
+- `hover:-translate-y-1`
+
+### Utilidades
+- `z-50` - Control de capas
+- `space-x-4` - Espaciado consistente
+- `overflow-hidden` - Control de contenido
+- `opacity-70` - Efectos visuales
 
 ## ✅ Validación
 

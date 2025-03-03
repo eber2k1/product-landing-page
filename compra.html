@@ -17,21 +17,33 @@
     
     <!-- Navegación (menu) fixed on top -->
     <header class="sticky-top w-100" style="grid-area: header;">
-        <nav class="navbar navbar-expand-lg navbar-light bg-secondary border-bottom" aria-label="Menú principal">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="./index.html" aria-label="Ir a la página de inicio">
-                    <p class="mb-0 fw-bold">SAMSUNG GALAXY</p>
-                </a>
-                <div class="navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./testimonios.html">Testimonios</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./compra.html">Compra</a></li>
-                    </ul>
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary border-bottom" aria-label="Menú principal">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html" aria-label="Ir a la página de inicio">
+              <p class="mb-0 fw-bold">SAMSUNG GALAXY</p>
+            </a>
+            <!-- Botón de toggle para móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Menú colapsable -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="./index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./testimonios.html">Testimonios</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./compra.html">Compra</a>
+                </li>
+              </ul>
             </div>
+          </div>
         </nav>
-    </header>
+      </header>
 
     <!-- Aside: On mobile full width above main, on tablet+ left side -->
     <aside class=" p-3" style="grid-area: aside;" aria-label="Progreso del proceso de compra">

@@ -31,20 +31,42 @@
 </head>
 <body class="grid md:grid-cols-3 gap-4 bg-gray-50 dark:text-white dark:bg-gray-800 pt-20">
 
-    <!--Navegación (menu)-->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md col-span-3">
+    <!-- Navegación (menu) -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
         <nav class="container mx-auto px-4 py-3 flex items-center justify-between" aria-label="Menú principal">
             <div class="font-bold text-lg text-blue-950 dark:text-white">
                 <a class="flex items-center" href="./index.html" aria-label="Ir a la página de inicio">
                     <p>SAMSUNG GALAXY</p>
                 </a>
             </div>
-            <ul class="flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 items-center w-full md:w-auto">
-                <li> <a class="text-xs md:text-lg  hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="./index.html">Inicio</a></li>
-                <li><a class="text-xs md:text-lg  hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="./testimonios.html">Testimonios</a></li>
-                <li><a class="text-xs md:text-lg  px-4 py-2 bg-blue-950 text-white rounded-lg hover:bg-blue-800 transition-colors" href="./compra.html">Compra</a></li>
+            <!-- Botón menú móvil -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+                <svg class="h-6 w-6 text-blue-950 dark:text-white" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <!-- Menú principal (desktop) -->
+            <ul class="hidden md:flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 items-center">
+                <li><a class="text-xs md:text-lg hover:text-blue-950 dark:hover:text-blue-200 transition-colors"
+                    href="./Inicio.html">Inicio</a></li>
+                <li><a class="text-xs md:text-lg hover:text-blue-950 dark:hover:text-blue-200 transition-colors"
+                        href="./testimonios.html">Testimonios</a></li>
+                <li><a class="text-xs md:text-lg px-4 py-2 bg-blue-950 text-white rounded-lg hover:bg-blue-800 transition-colors"
+                        href="./compra.html">Compra</a></li>
             </ul>
         </nav>
+        <!-- Menú móvil desplegable -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-900">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a class="block text-base hover:text-blue-950 dark:hover:text-blue-200 transition-colors"
+                    href="./Inicio.html">Inicio</a></li>
+                <li><a class="block text-base hover:text-blue-950 dark:hover:text-blue-200 transition-colors"
+                        href="./testimonios.html">Testimonios</a></li>
+                <li><a class="block text-base px-4 py-2 bg-blue-950 text-white rounded-lg hover:bg-blue-800 transition-colors"
+                        href="./compra.html">Compra</a></li>
+            </ul>
+        </div>
     </header>
     <!--END Navegación (menu)-->
 
@@ -206,12 +228,27 @@
         document.addEventListener("DOMContentLoaded", () => {
             const toggleButton = document.getElementById("theme-toggle");
             const html = document.documentElement;
-
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+    
+            // Abrir menú mobile
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+    
+            // Cerrar menú mobile al hacer click en una opción
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+    
             // Detectar preferencia del sistema operativo para el tema
             if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
                 html.classList.add("dark");
             }
-
+    
             // Verificar si hay una preferencia guardada
             const savedTheme = localStorage.getItem("theme");
             if (savedTheme === "dark") {
@@ -219,7 +256,7 @@
             } else if (savedTheme === "light") {
                 html.classList.remove("dark");
             }
-
+    
             // Cambiar entre temas
             toggleButton.addEventListener("click", () => {
                 if (html.classList.contains("dark")) {

@@ -31,6 +31,10 @@
 </head>
 
 <body class="font-mono bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100">
+
+    <div id="loading-indicator" class="fixed inset-0 flex items-center justify-center bg-white dark:bg-slate-900 z-50 transition-opacity duration-500">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+    </div>
     <!-- Navegación (menu) -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
         <nav class="container mx-auto px-4 py-3 flex items-center justify-between" aria-label="Menú principal">
@@ -314,51 +318,7 @@
         </svg>
     </button>
     <!--END Botón de cambio de claro a oscuro-->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const toggleButton = document.getElementById("theme-toggle");
-            const html = document.documentElement;
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-    
-            // Abrir menú mobile
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-    
-            // Cerrar menú mobile al hacer click en una opción
-            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-    
-            // Detectar preferencia del sistema operativo para el tema
-            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                html.classList.add("dark");
-            }
-    
-            // Verificar si hay una preferencia guardada
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme === "dark") {
-                html.classList.add("dark");
-            } else if (savedTheme === "light") {
-                html.classList.remove("dark");
-            }
-    
-            // Cambiar entre temas
-            toggleButton.addEventListener("click", () => {
-                if (html.classList.contains("dark")) {
-                    html.classList.remove("dark");
-                    localStorage.setItem("theme", "light");
-                } else {
-                    html.classList.add("dark");
-                    localStorage.setItem("theme", "dark");
-                }
-            });
-        });
-    </script>
+    <script src="./js/script.js" ></script>
 </body>
 
 </html>

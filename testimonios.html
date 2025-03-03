@@ -1,273 +1,202 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lee testimonios reales de clientes satisfechos con nuestros productos Samsung Galaxy.">
-    <meta name="keywords" content="Testimonios, Opiniones, Samsung Galaxy, Clientes Satisfechos">
-    <meta name="author" content="eber2k1">
-    <title>Testimonios | Samsung Galaxy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // Configuración de Tailwind
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-
-                }
-            }
-        }
-    </script>
-
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .section-height {
-                min-height: 100vh;
-            }
-        }
-    </style>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lee testimonios reales de clientes satisfechos con nuestros productos Samsung Galaxy.">
+  <meta name="keywords" content="Testimonios, Opiniones, Samsung Galaxy, Clientes Satisfechos">
+  <meta name="author" content="eber2k1">
+  <title>Testimonios | Samsung Galaxy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Configuración de Tailwind
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {}
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .section-height {
+        min-height: 100vh;
+      }
+    }
+  </style>
 </head>
-<body class="grid md:grid-cols-3 gap-4 bg-gray-50 dark:text-white dark:bg-gray-800 pt-20">
+<body class="grid md:grid-cols-3 gap-4 bg-gray-50 dark:bg-gray-800 dark:text-white pt-20 transition-opacity duration-500">
+  <!-- Indicador de Carga -->
+  <div id="loading-indicator" class="fixed inset-0 flex items-center justify-center bg-white dark:bg-slate-900 z-50 transition-opacity duration-500">
+    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+  </div>
 
-    <!-- Navegación (menu) -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
-        <nav class="container mx-auto px-4 py-3 flex items-center justify-between" aria-label="Menú principal">
-            <div class="font-bold text-lg text-blue-950 dark:text-white">
-                <a class="flex items-center" href="./index.html" aria-label="Ir a la página de inicio">
-                    <p>SAMSUNG GALAXY</p>
-                </a>
-            </div>
-            <!-- Botón menú móvil -->
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Abrir menú">
-                <svg class="h-6 w-6 text-blue-950 dark:text-white" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-            <!-- Menú principal (desktop) -->
-            <ul class="hidden md:flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 items-center">
-                <li><a class="text-xs md:text-lg hover:text-blue-950 dark:hover:text-blue-200 transition-colors"
-                    href="./index.html">Inicio</a></li>
-                <li><a class="text-xs md:text-lg hover:text-blue-950 dark:hover:text-blue-200 transition-colors"
-                        href="./testimonios.html">Testimonios</a></li>
-                <li><a class="text-xs md:text-lg px-4 py-2 bg-blue-950 text-white rounded-lg hover:bg-blue-800 transition-colors"
-                        href="./compra.html">Compra</a></li>
-            </ul>
-        </nav>
-        <!-- Menú móvil desplegable -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-900">
-            <ul class="flex flex-col space-y-2 p-4">
-                <li><a class="block text-base hover:text-blue-950 dark:hover:text-blue-200 transition-colors"
-                    href="./index.html">Inicio</a></li>
-                <li><a class="block text-base hover:text-blue-950 dark:hover:text-blue-200 transition-colors"
-                        href="./testimonios.html">Testimonios</a></li>
-                <li><a class="block text-base px-4 py-2 bg-blue-950 text-white rounded-lg hover:bg-blue-800 transition-colors"
-                        href="./compra.html">Compra</a></li>
-            </ul>
+  <!-- Navegación (menu) -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
+    <nav class="container mx-auto px-4 py-3 flex items-center justify-between" aria-label="Menú principal">
+      <div class="font-bold text-lg text-blue-950 dark:text-white">
+        <a class="flex items-center" href="./index.html" aria-label="Ir a la página de inicio">
+          <p>SAMSUNG GALAXY</p>
+        </a>
+      </div>
+      <!-- Botón menú móvil -->
+      <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+        <svg class="h-6 w-6 text-blue-950 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <!-- Menú principal (desktop) -->
+      <ul class="hidden md:flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 items-center">
+        <li><a class="text-xs md:text-lg hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="./index.html">Inicio</a></li>
+        <li><a class="text-xs md:text-lg hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="./testimonios.html">Testimonios</a></li>
+        <li><a class="text-xs md:text-lg px-4 py-2 bg-blue-950 text-white rounded-lg hover:bg-blue-800 transition-colors" href="./compra.html">Compra</a></li>
+      </ul>
+    </nav>
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-900">
+      <ul class="flex flex-col space-y-2 p-4">
+        <li><a class="block text-base hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="./index.html">Inicio</a></li>
+        <li><a class="block text-base hover:text-blue-950 dark:hover:text-blue-200 transition-colors" href="./testimonios.html">Testimonios</a></li>
+        <li><a class="block text-base px-4 py-2 bg-blue-950 text-white rounded-lg hover:bg-blue-800 transition-colors" href="./compra.html">Compra</a></li>
+      </ul>
+    </div>
+  </header>
+  <!--END Navegación (menu)-->
+
+  <!-- Filtro de testimonios -->
+  <aside id="aside-testimonial" class="aside-testimonial md:col-span-1 p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md mx-4 md:mx-6 mt-4 flex flex-col items-center">
+    <h2 class="text-xl font-bold mb-4 text-blue-950 dark:text-white">Filtrar por estrellas</h2>
+    <form>
+      <fieldset class="space-y-3">
+        <legend class="sr-only">Selecciona una calificación</legend>
+        <div class="flex items-center">
+          <input type="radio" id="stars-5" name="stars" value="5" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+          <label for="stars-5" class="ml-2 block text-gray-700 dark:text-gray-200">5 Estrellas ⭐⭐⭐⭐⭐</label>
         </div>
-    </header>
-    <!--END Navegación (menu)-->
+        <div class="flex items-center">
+          <input type="radio" id="stars-4" name="stars" value="4" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+          <label for="stars-4" class="ml-2 block text-gray-700 dark:text-gray-200">4 Estrellas ⭐⭐⭐⭐</label>
+        </div>
+        <div class="flex items-center">
+          <input type="radio" id="stars-3" name="stars" value="3" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+          <label for="stars-3" class="ml-2 block text-gray-700 dark:text-gray-200">3 Estrellas ⭐⭐⭐</label>
+        </div>
+        <div class="flex items-center">
+          <input type="radio" id="stars-2" name="stars" value="2" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+          <label for="stars-2" class="ml-2 block text-gray-700 dark:text-gray-200">2 Estrellas ⭐⭐</label>
+        </div>
+        <div class="flex items-center">
+          <input type="radio" id="stars-1" name="stars" value="1" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+          <label for="stars-1" class="ml-2 block text-gray-700 dark:text-gray-200">1 Estrella ⭐</label>
+        </div>
+      </fieldset>
+      <button type="submit" class="mt-6 w-full py-2 px-4 bg-blue-950 text-white rounded-lg hover:bg-blue-800 transition-colors">
+        Aplicar filtro
+      </button>
+    </form>
+  </aside>
+  <!--END Filtro de testimonios -->
 
-    <!-- Filtro de testimonios - Orden 1 en móvil, 1 en desktop -->
-    <aside class="aside-testimonial md:col-span-1 p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md mx-4 md:mx-6 mt-4 flex flex-col items-center" id="aside-testimonial">
-        <section>
-            <h2 class="text-xl font-bold mb-4 text-blue-950 dark:text-white">Filtrar por estrellas</h2>
-            <form>
-                <fieldset class="space-y-3">
-                    <legend class="sr-only">Selecciona una calificación</legend>
-                    
-                    <div class="flex items-center">
-                        <input type="radio" id="stars-5" name="stars" value="5" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                        <label for="stars-5" class="ml-2 block text-gray-700 dark:text-gray-200">
-                            5 Estrellas ⭐⭐⭐⭐⭐
-                        </label>
-                    </div>
-                    
-                    <div class="flex items-center">
-                        <input type="radio" id="stars-4" name="stars" value="4" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                        <label for="stars-4" class="ml-2 block text-gray-700 dark:text-gray-200">
-                            4 Estrellas ⭐⭐⭐⭐
-                        </label>
-                    </div>
-                    
-                    <div class="flex items-center">
-                        <input type="radio" id="stars-3" name="stars" value="3" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                        <label for="stars-3" class="ml-2 block text-gray-700 dark:text-gray-200">
-                            3 Estrellas ⭐⭐⭐
-                        </label>
-                    </div>
-                    
-                    <div class="flex items-center">
-                        <input type="radio" id="stars-2" name="stars" value="2" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                        <label for="stars-2" class="ml-2 block text-gray-700 dark:text-gray-200">
-                            2 Estrellas ⭐⭐
-                        </label>
-                    </div>
-                    
-                    <div class="flex items-center">
-                        <input type="radio" id="stars-1" name="stars" value="1" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                        <label for="stars-1" class="ml-2 block text-gray-700 dark:text-gray-200">
-                            1 Estrella ⭐
-                        </label>
-                    </div>
-                </fieldset>
-                
-                <button type="submit" class="mt-6 w-full py-2 px-4 bg-blue-950 text-white rounded-lg hover:bg-blue-800 transition-colors">
-                    Aplicar filtro
-                </button>
-            </form>
-        </section>
-    </aside>
-    <!--END Filtro de testimonios -->
-
-    <!-- Contenido principal - Orden 2 en móvil, 2 en desktop -->
-    <main class="main-testimonial md:col-span-2 px-4 md:px-6 mt-4 order-2" id="main-testimonial">
-        <article id="testimonials" aria-labelledby="testimonials-title">
-            <h1 class="text-3xl font-bold mb-8 text-center text-blue-950 dark:text-white" id="testimonials-title">Testimonios de Clientes</h1>
-            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cards">
-                <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <figure class="relative">
-                        <img src="./img/photos-testimonios/img-testimonio-1.jpeg" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover">
-                        <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">María González</figcaption>
-                    </figure>
-                    <div class="p-4">
-                        <p class="italic text-gray-700 dark:text-gray-300 mb-2">"La cámara del Galaxy S25 Ultra es simplemente espectacular, las fotos nocturnas parecen tomadas con luz de día y el zoom óptico 10x mantiene los detalles intactos."</p>
-                        <p class="text-yellow-400" aria-label="Calificación: 5 de 5 estrellas">⭐⭐⭐⭐⭐</p>
-                    </div>
-                </article>
-                <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <figure class="relative">
-                        <img src="./img/photos-testimonios/testimonio-2.jpeg" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover">
-                        <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">Carlos Rodríguez</figcaption>
-                    </figure>
-                    <div class="p-4">
-                        <p class="italic text-gray-700 dark:text-gray-300 mb-2">"La batería del Galaxy S25 Ultra dura más de un día completo incluso con uso intensivo. La carga rápida de 65W lo lleva de 0 a 100% en menos de 40 minutos. Impresionante."</p>
-                        <p class="text-yellow-400" aria-label="Calificación: 5 de 5 estrellas">⭐⭐⭐⭐⭐</p>
-                    </div>
-                </article>
-                <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <figure class="relative">
-                        <img src="./img/photos-testimonios/testimonio-3.png" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover">
-                        <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">Laura Martínez</figcaption>
-                    </figure>
-                    <div class="p-4">
-                        <p class="italic text-gray-700 dark:text-gray-300 mb-2">"La pantalla AMOLED del S25 Ultra es perfecta para ver contenido HDR, con colores vibrantes y negros profundos. El brillo adaptativo funciona a la perfección incluso bajo luz solar directa."</p>
-                        <p class="text-yellow-400" aria-label="Calificación: 4 de 5 estrellas">⭐⭐⭐⭐☆</p>
-                    </div>
-                </article>
-                <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <figure class="relative">
-                        <img src="./img/photos-testimonios/testimonio-4.jpg" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover">
-                        <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">Javier Sánchez</figcaption>
-                    </figure>
-                    <div class="p-4">
-                        <p class="italic text-gray-700 dark:text-gray-300 mb-2">"El rendimiento del Galaxy S25 Ultra con el nuevo procesador es brutal. Puedo editar videos 4K, jugar a máximos gráficos y hacer multitarea sin notar ningún tipo de ralentización."</p>
-                        <p class="text-yellow-400" aria-label="Calificación: 5 de 5 estrellas">⭐⭐⭐⭐⭐</p>
-                    </div>
-                </article>
-                <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <figure class="relative">
-                        <img src="./img/photos-testimonios/testimonio-5.jpeg" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover">
-                        <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">Ana López</figcaption>
-                    </figure>
-                    <div class="p-4">
-                        <p class="italic text-gray-700 dark:text-gray-300 mb-2">"Las nuevas funciones de IA del S25 Ultra son increíbles. La traducción en tiempo real de conversaciones y la edición automática de fotos han cambiado mi forma de usar el teléfono."</p>
-                        <p class="text-yellow-400" aria-label="Calificación: 5 de 5 estrellas">⭐⭐⭐⭐⭐</p>
-                    </div>
-                </article>
-                <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <figure class="relative">
-                        <img src="./img/photos-testimonios/testimonio-6.jpg" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover">
-                        <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">Miguel Hernández</figcaption>
-                    </figure>
-                    <div class="p-4">
-                        <p class="italic text-gray-700 dark:text-gray-300 mb-2">"El S Pen integrado en el S25 Ultra es una maravilla para tomar notas y dibujar. La precisión es perfecta y la latencia tan baja que parece que estás escribiendo sobre papel."</p>
-                        <p class="text-yellow-400" aria-label="Calificación: 4 de 5 estrellas">⭐⭐⭐⭐☆</p>
-                    </div>
-                </article>
-            </section>
+  <!-- Contenido principal -->
+  <main id="main-testimonial" class="main-testimonial md:col-span-2 px-4 md:px-6 mt-4 order-2">
+    <article id="testimonials" aria-labelledby="testimonials-title">
+      <h1 id="testimonials-title" class="text-3xl font-bold mb-8 text-center text-blue-950 dark:text-white">
+        Testimonios de Clientes
+      </h1>
+      <section id="cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
+          <figure class="relative">
+            <img src="./img/photos-testimonios/img-testimonio-1.jpeg" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover" loading="lazy">
+            <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">
+              María González
+            </figcaption>
+          </figure>
+          <div class="p-4">
+            <p class="italic text-gray-700 dark:text-gray-300 mb-2">"La cámara del Galaxy S25 Ultra es simplemente espectacular, las fotos nocturnas parecen tomadas con luz de día."</p>
+            <p class="text-yellow-400" aria-label="Calificación: 5 de 5 estrellas">⭐⭐⭐⭐⭐</p>
+          </div>
         </article>
-    </main>
-
-    <!-- Pie de página -->
-    <footer aria-label="Pie de página" class="bg-blue-950 text-white py-8 md:col-span-3 order-3">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="mb-4 md:mb-0">&copy; Todos los derechos reservados a eber2k1.</p>
-                <p class="flex items-center">
-                    Síguenos en:
-                    <a href="#" class="ml-2 mx-1 hover:text-gray-300 transition-colors">Facebook</a> |
-                    <a href="#" class="mx-1 hover:text-gray-300 transition-colors">Twitter</a> |
-                    <a href="#" class="mx-1 hover:text-gray-300 transition-colors">Instagram</a>
-                </p>
+        <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
+            <figure class="relative">
+                <img src="./img/photos-testimonios/testimonio-2.jpeg" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover" loading="lazy">
+                <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">Carlos Rodríguez</figcaption>
+            </figure>
+            <div class="p-4">
+                <p class="italic text-gray-700 dark:text-gray-300 mb-2">"La batería del Galaxy S25 Ultra dura más de un día completo incluso con uso intensivo. La carga rápida de 65W lo lleva de 0 a 100% en menos de 40 minutos. Impresionante."</p>
+                <p class="text-yellow-400" aria-label="Calificación: 5 de 5 estrellas">⭐⭐⭐⭐⭐</p>
             </div>
-        </div>
-    </footer>
-    <!--END Pie de página -->
+        </article>
+        <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
+            <figure class="relative">
+                <img src="./img/photos-testimonios/testimonio-3.png" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover" loading="lazy">
+                <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">Laura Martínez</figcaption>
+            </figure>
+            <div class="p-4">
+                <p class="italic text-gray-700 dark:text-gray-300 mb-2">"La pantalla AMOLED del S25 Ultra es perfecta para ver contenido HDR, con colores vibrantes y negros profundos. El brillo adaptativo funciona a la perfección incluso bajo luz solar directa."</p>
+                <p class="text-yellow-400" aria-label="Calificación: 4 de 5 estrellas">⭐⭐⭐⭐☆</p>
+            </div>
+        </article>
+        <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
+            <figure class="relative">
+                <img src="./img/photos-testimonios/testimonio-4.jpg" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover" loading="lazy">
+                <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">Javier Sánchez</figcaption>
+            </figure>
+            <div class="p-4">
+                <p class="italic text-gray-700 dark:text-gray-300 mb-2">"El rendimiento del Galaxy S25 Ultra con el nuevo procesador es brutal. Puedo editar videos 4K, jugar a máximos gráficos y hacer multitarea sin notar ningún tipo de ralentización."</p>
+                <p class="text-yellow-400" aria-label="Calificación: 5 de 5 estrellas">⭐⭐⭐⭐⭐</p>
+            </div>
+        </article>
+        <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
+            <figure class="relative">
+                <img src="./img/photos-testimonios/testimonio-5.jpeg" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover" loading="lazy">
+                <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">Ana López</figcaption>
+            </figure>
+            <div class="p-4">
+                <p class="italic text-gray-700 dark:text-gray-300 mb-2">"Las nuevas funciones de IA del S25 Ultra son increíbles. La traducción en tiempo real de conversaciones y la edición automática de fotos han cambiado mi forma de usar el teléfono."</p>
+                <p class="text-yellow-400" aria-label="Calificación: 5 de 5 estrellas">⭐⭐⭐⭐⭐</p>
+            </div>
+        </article>
+        <article class="testimonial bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1">
+            <figure class="relative">
+                <img src="./img/photos-testimonios/testimonio-6.jpg" alt="Foto de un cliente satisfecho" class="w-full h-48 object-cover">
+                <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-3 text-sm">Miguel Hernández</figcaption>
+            </figure>
+            <div class="p-4">
+                <p class="italic text-gray-700 dark:text-gray-300 mb-2">"El S Pen integrado en el S25 Ultra es una maravilla para tomar notas y dibujar. La precisión es perfecta y la latencia tan baja que parece que estás escribiendo sobre papel."</p>
+                <p class="text-yellow-400" aria-label="Calificación: 4 de 5 estrellas">⭐⭐⭐⭐☆</p>
+            </div>
+        </article>
+      </section>
+    </article>
+  </main>
+  <!--END Contenido principal -->
 
-    <!-- Botón de cambio de claro a oscuro-->
-    <button id="theme-toggle"
-        class="fixed bottom-6 right-6 z-50 p-3 rounded-full shadow-lg text-white transition-all duration-300 ease-in-out  hover:shadow-xl transform hover:scale-110 dark:bg-white dark:text-slate-900 bg-slate-900"
-        aria-label="Cambiar entre modo claro y oscuro">
+  <!-- Pie de página -->
+  <footer aria-label="Pie de página" class="bg-blue-950 text-white py-8 md:col-span-3 order-3">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="mb-4 md:mb-0">&copy; Todos los derechos reservados a eber2k1.</p>
+        <p class="flex items-center">
+          Síguenos en:
+          <a href="#" class="ml-2 mx-1 hover:text-gray-300 transition-colors">Facebook</a> |
+          <a href="#" class="mx-1 hover:text-gray-300 transition-colors">Twitter</a> |
+          <a href="#" class="mx-1 hover:text-gray-300 transition-colors">Instagram</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!--END Pie de página -->
 
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:hidden" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden dark:block" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-    </button>
-    <!--END Botón de cambio de claro a oscuro-->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const toggleButton = document.getElementById("theme-toggle");
-            const html = document.documentElement;
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-    
-            // Abrir menú mobile
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-    
-            // Cerrar menú mobile al hacer click en una opción
-            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-    
-            // Detectar preferencia del sistema operativo para el tema
-            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                html.classList.add("dark");
-            }
-    
-            // Verificar si hay una preferencia guardada
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme === "dark") {
-                html.classList.add("dark");
-            } else if (savedTheme === "light") {
-                html.classList.remove("dark");
-            }
-    
-            // Cambiar entre temas
-            toggleButton.addEventListener("click", () => {
-                if (html.classList.contains("dark")) {
-                    html.classList.remove("dark");
-                    localStorage.setItem("theme", "light");
-                } else {
-                    html.classList.add("dark");
-                    localStorage.setItem("theme", "dark");
-                }
-            });
-        });
-    </script>
+  <!-- Botón de cambio de claro a oscuro -->
+  <button id="theme-toggle" class="fixed bottom-6 right-6 z-50 p-3 rounded-full shadow-lg text-white transition-all duration-300 ease-in-out hover:shadow-xl transform hover:scale-110 dark:bg-white dark:text-slate-900 bg-slate-900" aria-label="Cambiar entre modo claro y oscuro">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+  </button>
+  <!--END Botón de cambio de claro a oscuro -->
+  <script src="./js/script.js" ></script>
 </body>
 </html>
